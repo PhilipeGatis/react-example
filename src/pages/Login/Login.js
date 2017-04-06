@@ -17,7 +17,7 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.actions.login(
+    this.props.actions.authenticate(
       this.state.email,
       this.state.password
     )
@@ -27,7 +27,7 @@ class Login extends Component {
    this.setState({email: event.target.value});
   }
 
-  handlePasswordChange = () => {
+  handlePasswordChange = (event) => {
    this.setState({password: event.target.value});
   }
 

@@ -1,15 +1,36 @@
-export default(state = {}, action) => {
+import {
+  LOGIN,
+  LOGOUT,
+  AUTHENTICATE_FAILED,
+} from './../actions/auth';
+
+const initialState = {
+  loggedUser: null,
+  error: null
+}
+
+export default(state = initialState, action) => {
   switch (action.type) {
-    case 'login':
+    case AUTHENTICATE_FAILED:
       return {
         ...state,
-        loggedUser: action.payload.email
+        error: action.payload.error
       };
-    case 'logout':
+
+    case LOGIN:
       return {
         ...state,
-        loggedUser: null
+        loggedUser: action.payload.user,
+        error: null
       };
+
+    case LOGOUT:
+      return {
+        ...state,
+        loggedUser: null,
+        error: null
+      };
+
     default:
       return state;
   }

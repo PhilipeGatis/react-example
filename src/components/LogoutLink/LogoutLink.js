@@ -13,7 +13,7 @@ class LogoutLink extends Component {
   render() {
     return (
       <span>
-       {this.props.auth.loggedUser}{' '}(<a href="#" onClick={this.handleClick}>Sair</a>)
+       {this.props.auth.loggedUser.email}{' '}(<a href="#" onClick={this.handleClick}>Sair</a>)
       </span>
     );
   }

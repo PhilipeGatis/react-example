@@ -16,7 +16,7 @@ const PublicRoute = ({ component, auth, ...rest }) => (
 );
 
 PublicRoute.propTypes = {
-  component: React.PropTypes.object.isRequired,
+  component: React.PropTypes.func.isRequired,
   auth: React.PropTypes.object.isRequired,
   location: React.PropTypes.object.isRequired,
 };

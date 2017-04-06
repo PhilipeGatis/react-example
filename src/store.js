@@ -1,7 +1,9 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import localStore from 'store';
-import auth from './reducers/auth';
+import rootReducer from './reducers';
+import rootSaga from './sagas';
 
 const loadState = () => {
   try {
@@ -27,20 +29,15 @@ const saveState = (state) => {
   }
 };
 
+const initialState = loadState();
 const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware];
 
- /* eslint-disable no-underscore-dangle */
-let store = (() => {
-  const initialState = loadState();
+const store = createStore(rootReducer, initialState, composeWithDevTools(
+  applyMiddleware(...middlewares),
+));
 
-  return createStore(
-    combineReducers({auth}),
-    initialState,
-    applyMiddleware(sagaMiddleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
-})();
-/* eslint-enable */
+sagaMiddleware.run(rootSaga);
 
 store.subscribe(() => {
   const state = store.getState();
