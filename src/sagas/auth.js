@@ -20,6 +20,6 @@ function* authenticate(action) {
   }
 }
 
-export function* watchAuthenticate() {
+export default function* watchAuthenticate() {
   yield takeEvery(actions.AUTHENTICATE, authenticate);
 }
