@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 
 import Contact from './../Contact/Contact';
 import About from './../About/About';
 import Home from './../Home/Home';
-import NotFound from './../NotFound/NotFound';
+import LogoutLink from './../../components/LogoutLink/LogoutLink';
 
 class App extends Component {
   render() {
@@ -16,15 +16,16 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
 
+        <p><LogoutLink/></p>
         <p><Link to="/">Home</Link></p>
         <p><Link to="/contact">Contact</Link></p>
         <p><Link to="/about">About</Link></p>
 
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/about" component={About}/>
-          <Route path="*" component={NotFound}/>
+          <Route path="/contact" exact component={Contact}/>
+          <Route path="/about" exact component={About}/>
+          <Redirect to="/"/>
         </Switch>
       </div>
     );
