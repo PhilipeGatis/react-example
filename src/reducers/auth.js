@@ -1,7 +1,7 @@
 import {
-  LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
   LOGOUT,
-  AUTHENTICATE_FAILED,
 } from './../actions/auth';
 
 const initialState = {
@@ -11,13 +11,14 @@ const initialState = {
 
 export default(state = initialState, action) => {
   switch (action.type) {
-    case AUTHENTICATE_FAILED:
+    case LOGIN_FAILED:
       return {
         ...state,
+        loggedUser: null,
         error: action.payload.error
       };
 
-    case LOGIN:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         loggedUser: action.payload.user,

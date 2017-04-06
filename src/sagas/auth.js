@@ -7,19 +7,19 @@ const request = ({email, password}) => {
   return axios.get(`http://echo.jsontest.com/email/${email}/password/${password}`);
 };
 
-function* authenticate(action) {
+function* loginAsync(action) {
   try {
     const response = yield call(
       request,
       action.payload
     );
 
-    yield put(actions.login(response.data));
+    yield put(actions.loginSuccess(response.data));
   } catch (err) {
-    yield put(actions.authenticateFailed(err));
+    yield put(actions.loginFailed(err));
   }
 }
 
-export default function* watchAuthenticate() {
-  yield takeEvery(actions.AUTHENTICATE, authenticate);
+export default function* watchLoginAsync() {
+  yield takeEvery(actions.LOGIN, loginAsync);
 }

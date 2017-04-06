@@ -1,25 +1,26 @@
 export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const LOGOUT = 'LOGOUT';
-export const AUTHENTICATE = 'AUTHENTICATE';
-export const AUTHENTICATE_FAILED = 'AUTHENTICATE_FAILED';
 
-export const authenticate = (email, password) => ({
-  type: AUTHENTICATE,
+
+export const login = (email, password) => ({
+  type: LOGIN,
   payload: {
     email,
     password
   }
 })
 
-export const authenticateFailed = (error) => ({
-  type: AUTHENTICATE_FAILED,
+export const loginFailed = (error) => ({
+  type: LOGIN_FAILED,
   payload: {
     error
   }
 })
 
-export const login = (user) => ({
-  type: LOGIN,
+export const loginSuccess = (user) => ({
+  type: LOGIN_SUCCESS,
   payload: {
     user
   }
