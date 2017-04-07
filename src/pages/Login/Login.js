@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
-import * as actions from '../../actions/auth';
-
 import './Login.css';
 
 class Login extends Component {
@@ -17,7 +12,7 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.actions.login(
+    this.props.handleSubmit(
       this.state.email,
       this.state.password
     )
@@ -52,19 +47,7 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  actions: React.PropTypes.object.isRequired,
+  handleSubmit: React.PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    auth: state.auth
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

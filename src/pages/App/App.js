@@ -3,10 +3,10 @@ import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 
-import Contact from './../Contact/Contact';
+import Contact from './../../containers/Contact/Contact';
 import About from './../About/About';
 import Home from './../Home/Home';
-import LogoutLink from './../../components/LogoutLink/LogoutLink';
+import LogoutLink from './../../containers/LogoutLink/LogoutLink';
 
 class App extends Component {
   render() {

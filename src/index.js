@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import PublicRoute from './components/PublicRoute/PublicRoute';
+import PrivateRoute from './containers/PrivateRoute/PrivateRoute';
+import PublicRoute from './containers/PublicRoute/PublicRoute';
 
 import App from './pages/App/App';
-import Login from './pages/Login/Login';
+import Login from './containers/Login/Login';
 import store from './store';
 
 import './index.css';
