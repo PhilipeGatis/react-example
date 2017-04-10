@@ -8,19 +8,19 @@ import ContactComponent from './../../pages/Contact/Contact';
 import * as actions from './../../actions/contact';
 
 class Contact extends Component {
-   componentDidMount() {
+  componentDidMount() {
     const id = 1;
     this.props.actions.getContact(id);
   }
 
   render() {
     return this.props.contact.error ?
-      <Error error={this.props.contact.error}/>
+      <Error error={this.props.contact.error} />
     : this.props.contact.isLoading ?
-      <Loading/>
+      <Loading />
     : <ContactComponent
-        contact={this.props.contact.model}
-      />
+      contact={this.props.contact.model}
+    />;
   }
 }
 
@@ -29,16 +29,12 @@ Contact.propTypes = {
   actions: React.PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    contact: state.contact
-  };
-}
+const mapStateToProps = (state, props) => ({
+  contact: state.contact,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(actions, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact);

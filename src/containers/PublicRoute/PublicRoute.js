@@ -3,16 +3,20 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const PublicRoute = ({ component, auth, ...rest }) => (
-  <Route {...rest} render={props => (
+  <Route
+    {...rest} render={props => (
     !auth.loggedUser ? (
       React.createElement(component, props)
     ) : (
-      <Redirect to={{
-        pathname: '/',
-        state: { from: props.location }
-      }}/>
+      <Redirect
+        to={{
+          pathname: '/',
+          state: { from: props.location },
+        }}
+      />
     )
-  )}/>
+  )}
+  />
 );
 
 PublicRoute.propTypes = {
@@ -21,10 +25,8 @@ PublicRoute.propTypes = {
   location: React.PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    auth: state.auth
-  };
-}
+const mapStateToProps = (state, props) => ({
+  auth: state.auth,
+});
 
 export default connect(mapStateToProps)(PublicRoute);

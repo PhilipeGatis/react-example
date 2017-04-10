@@ -1,14 +1,15 @@
-.App {
-  text-align: center;
-}
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.app{
+  height: 100%;
+  .app-bar{
+    position: relative;
+    .app-bar-title {
+      flex: 1;
+    }
+  }
 
-.App-intro {
-  font-size: large;
+  .app-content{
+    height: 100%;
+    padding: 0 10px;
+  }
 }

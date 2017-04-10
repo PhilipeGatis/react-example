@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Text } from 'material-ui';
 
 class LogoutLink extends Component {
   handleClick = (event) => {
@@ -8,9 +9,14 @@ class LogoutLink extends Component {
 
   render() {
     return (
-      <span>
-       {this.props.email}{' '}(<a href="#" onClick={this.handleClick}>Sair</a>)
-      </span>
+      <div>
+        <Text type="title" colorInherit>
+          Olá, {this.props.email}
+          <Button contrast onClick={this.handleClick}>
+            Sair
+          </Button>
+        </Text>
+      </div>
     );
   }
 }

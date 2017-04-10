@@ -3,15 +3,14 @@ import axios from 'axios';
 
 import * as actions from './../actions/auth';
 
-const request = ({email, password}) => {
-  return axios.get(`http://echo.jsontest.com/email/${email}/password/${password}`);
-};
+const request = ({ email, password }) => axios.get(`http://echo.jsontest.com/email/${email}/password/${password}`);
 
 function* loginAsync(action) {
   try {
+    yield put(actions.isLogging());
     const response = yield call(
       request,
-      action.payload
+      action.payload,
     );
 
     yield put(actions.loginSuccess(response.data));

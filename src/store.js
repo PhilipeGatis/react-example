@@ -43,7 +43,7 @@ store.subscribe(() => {
   const state = store.getState();
 
   saveState({
-    auth: state.auth
+    auth: state.auth,
   });
 });
 

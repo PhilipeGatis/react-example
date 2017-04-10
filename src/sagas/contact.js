@@ -3,15 +3,13 @@ import axios from 'axios';
 
 import * as actions from './../actions/contact';
 
-const request = ({id}) => {
-  return axios.get(`http://echo.jsontest.com/id/${id}/name/fulano/email/fulano@gmail.com`);
-};
+const request = ({ id }) => axios.get(`http://echo.jsontest.com/id/${id}/name/fulano/email/fulano@gmail.com`);
 
 function* getContactAsync(action) {
   try {
     const response = yield call(
       request,
-      action.payload
+      action.payload,
     );
 
     yield put(actions.getContactSuccess(response.data));
