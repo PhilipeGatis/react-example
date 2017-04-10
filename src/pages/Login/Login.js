@@ -30,55 +30,37 @@ class Login extends Component {
 
   render() {
     return (
-      <form id="login-form" onSubmit={this.handleSubmit}>
-        <Layout id="login-container" container>
-          <Layout
-            item
-            xs={12}
-            id="login-box"
-          >
-            <Layout
-              container
-              direction="row"
-              align="center"
-              justify="center"
-              id="login-box"
+      <form className="login-wrapper" onSubmit={this.handleSubmit}>
+        <Paper className="login-box" elevation={12}>
+          <h3>
+            Smart Composer
+          </h3>
+          <TextField
+            label="Login"
+            errorText="Este campo é obrigatorio"
+            id="email"
+            type="text"
+            onChange={this.handleEmailChange}
+          />
+          <TextField
+            label="Password"
+            errorText="Este campo é obrigatorio"
+            id="password"
+            type="password"
+            onChange={this.handlePasswordChange}
+          />
+          {
+            this.props.isLoading ? <Loading /> :
+            <Button
+              raised
+              type="submit"
+              primary
+              label="Login"
             >
-              <Layout item xs={5}>
-                <Paper id="login-paper" elevation={12}>
-                  <h3>
-                    Smart Composer
-                  </h3>
-                  <TextField
-                    label="Login"
-                    errorText="Este campo é obrigatorio"
-                    id="email"
-                    type="text"
-                    onChange={this.handleEmailChange}
-                  />
-                  <TextField
-                    label="Password"
-                    errorText="Este campo é obrigatorio"
-                    id="password"
-                    type="password"
-                    onChange={this.handlePasswordChange}
-                  />
-                  {
-                    this.props.isLoading ? <Loading /> :
-                    <Button
-                      raised
-                      type="submit"
-                      primary
-                      label="Login"
-                    >
-                      Login
-                    </Button>
-                  }
-                </Paper>
-              </Layout>
-            </Layout>
-          </Layout>
-        </Layout>
+              Login
+            </Button>
+          }
+        </Paper>
       </form>
     );
   }

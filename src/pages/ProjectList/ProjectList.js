@@ -11,14 +11,6 @@ import Paper from 'material-ui/Paper';
 
 class ProjectList extends Component {
 
-  handleEdit = (event) => {
-    event.preventDefault();
-    this.props.handleEdit(
-      this.state.email,
-      this.state.password,
-    );
-  }
-
   render() {
     return (
       <Paper>
@@ -33,9 +25,9 @@ class ProjectList extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.projects.map((n) => {
+            {this.props.projects.map((n) => {
               return (
-                <TableRow key={n.id} onRowClick={this.handleEdit(n.id)}>
+                <TableRow key={n.id}>
                   <TableCell>{n.title}</TableCell>
                   <TableCell numeric>{n.userId}</TableCell>
                   <TableCell numeric>{n.userId}</TableCell>
@@ -52,7 +44,6 @@ class ProjectList extends Component {
 }
 
 ProjectList.propTypes = {
-  handleEdit: React.PropTypes.func.isRequired,
   isLoading: React.PropTypes.bool.isRequired,
   projects: React.PropTypes.array.isRequired,
 };

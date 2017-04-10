@@ -5,34 +5,42 @@ import { connect } from 'react-redux';
 import Error from './../../components/Error/Error';
 import Loading from './../../components/Loading/Loading';
 import ProjectListComponent from './../../pages/ProjectList/ProjectList';
-import * as actions from './../../actions/projectList';
+import * as actions from './../../actions/project';
 
 class ProjectList extends Component {
   componentDidMount() {
-    this.props.actions.listProjects('aaaaz');
+    this.props.actions.getProjects('aaaaz');
   }
 
   render() {
+    if (this.props.error) {
+      return <Error error={this.props.error} />;
+    }
+
+    if (this.props.isLoading) {
+      return <Loading />;
+    }
+
     return (
-        this.props.list.error ?
-          <Error error={this.props.list.error} />
-        : this.props.list.isLoading ?
-          <Loading />
-        : <ProjectListComponent
-          isLoading={this.props.list.isLoading}
-          projects={this.props.list.projects}
-        />
+      <ProjectListComponent
+        isLoading={this.props.isLoading}
+        projects={this.props.projects}
+      />
     );
   }
 }
 
 ProjectList.propTypes = {
-  list: React.PropTypes.object.isRequired,
+  projects: React.PropTypes.array.isRequired,
   actions: React.PropTypes.object.isRequired,
+  error: React.PropTypes.object,
+  isLoading: React.PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-  list: state.list,
+  projects: state.project.list,
+  error: state.project.error,
+  isLoading: state.project.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

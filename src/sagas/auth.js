@@ -7,7 +7,6 @@ const request = ({ email, password }) => axios.get(`http://echo.jsontest.com/ema
 
 function* loginAsync(action) {
   try {
-    yield put(actions.isLogging());
     const response = yield call(
       request,
       action.payload,

@@ -1,38 +1,38 @@
 import {
-  LIST_PROJECTS,
-  LIST_PROJECTS_SUCCESS,
-  LIST_PROJECTS_FAILED,
-} from './../actions/projectList';
+  GET_PROJECTS,
+  GET_PROJECTS_SUCCESS,
+  GET_PROJECTS_FAILED,
+} from './../actions/project';
 
 const initialState = {
-  projects: null,
+  list: [],
   error: null,
   isLoading: false,
 };
 
 export default(state = initialState, action) => {
   switch (action.type) {
-    case LIST_PROJECTS:
+    case GET_PROJECTS:
       return {
         ...state,
         isLoading: true,
-        projects: action.payload.projects,
+        list: action.payload.projects,
         error: action.payload.error,
       };
 
-    case LIST_PROJECTS_FAILED:
+    case GET_PROJECTS_FAILED:
       return {
         ...state,
         isLoading: false,
-        projects: null,
+        list: null,
         error: action.payload.error,
       };
 
-    case LIST_PROJECTS_SUCCESS:
+    case GET_PROJECTS_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        projects: action.payload.projects,
+        list: action.payload.projects,
         error: null,
       };
 

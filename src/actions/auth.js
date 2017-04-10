@@ -1,7 +1,6 @@
 export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
-export const IS_LOGGING = 'IS_LOGGING';
 export const LOGOUT = 'LOGOUT';
 
 
@@ -24,13 +23,6 @@ export const loginSuccess = user => ({
   type: LOGIN_SUCCESS,
   payload: {
     user,
-  },
-});
-
-export const isLogging = isLoading => ({
-  type: IS_LOGGING,
-  payload: {
-    isLoading,
   },
 });
 

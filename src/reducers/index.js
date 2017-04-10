@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
 import contact from './contact';
-import listProjects from './listProjects';
+import project from './project';
 
 const rootReducer = combineReducers({
   auth,
   contact,
-  listProjects,
+  project,
 });
 
 export default rootReducer;
