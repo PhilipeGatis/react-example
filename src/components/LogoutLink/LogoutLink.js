@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Text } from 'material-ui';
+import { FlatButton } from 'material-ui';
 
 class LogoutLink extends Component {
   handleClick = (event) => {
@@ -10,19 +10,17 @@ class LogoutLink extends Component {
   render() {
     return (
       <div>
-        <Text type="title" colorInherit>
-          Olá, {this.props.email}
-          <Button contrast onClick={this.handleClick}>
-            Sair
-          </Button>
-        </Text>
+        <FlatButton 
+          onClick={this.handleClick}
+          label="Sair"
+          primary
+        />
       </div>
     );
   }
 }
 
 LogoutLink.propTypes = {
-  email: React.PropTypes.string.isRequired,
   handleClick: React.PropTypes.func.isRequired,
 };
 

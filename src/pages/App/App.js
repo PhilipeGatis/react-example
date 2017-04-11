@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import { AppBar, Toolbar, Text, Layout, Paper } from 'material-ui';
+import { AppBar, Subheader, Paper, List, ListItem } from 'material-ui';
 
 import './App.css';
 
@@ -13,23 +13,40 @@ import LogoutLink from './../../containers/LogoutLink/LogoutLink';
 class App extends Component {
   render() {
     return (
-      <div className="app">
-        <AppBar className="app-bar">
-          <Toolbar>
-            <Text type="title" className="app-bar-title" colorInherit>Smart Composer</Text>
-            <LogoutLink />
-          </Toolbar>
-        </AppBar>
-        <Layout container className="app-content">
-          <Layout item xs={4}>
-            <Paper elevation={6}>
-              <p><Link to="/">Home</Link></p>
-              <p><Link to="/projects">Projetos</Link></p>
-              <p><Link to="/contact">Contact</Link></p>
-              <p><Link to="/about">About</Link></p>
+      <div>
+        <AppBar
+          title="Smart Composer"
+          iconElementRight={<LogoutLink />}
+        />
+        <div className="app-content">
+          <div className="app-content-menu">
+            <Paper className="app-content-menu-paper">
+              <List>
+                <Subheader>Menu</Subheader>
+                <Link to="/">
+                  <ListItem
+                    primaryText="HOME"
+                  />
+                </Link>
+                <Link to="/projects">
+                  <ListItem
+                    primaryText="Projetos"
+                  />
+                </Link>
+                <Link to="/contact">
+                  <ListItem
+                    primaryText="Contactos"
+                  />
+                </Link>
+                <Link to="/about">
+                  <ListItem
+                    primaryText="Sobre"
+                  />
+                </Link>
+              </List>
             </Paper>
-          </Layout>
-          <Layout item xs={8}>
+          </div>
+          <div className="app-content-box">
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/projects" exact component={ProjectList} />
@@ -37,8 +54,8 @@ class App extends Component {
               <Route path="/about" exact component={About} />
               <Redirect to="/" />
             </Switch>
-          </Layout>
-        </Layout>
+          </div>
+        </div>
       </div>
     );
   }

@@ -5,20 +5,17 @@ import { connect } from 'react-redux';
 import Component from './../../components/LogoutLink/LogoutLink';
 import * as actions from './../../actions/auth';
 
-const LogoutLink = ({ auth, actions }) => (
+const LogoutLink = ({ actions }) => (
   <Component
-    email={auth.loggedUser.email}
     handleClick={actions.logout}
   />
 );
 
 LogoutLink.propTypes = {
-  auth: React.PropTypes.object.isRequired,
   actions: React.PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-  auth: state.auth,
 });
 
 const mapDispatchToProps = dispatch => ({

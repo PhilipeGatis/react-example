@@ -3,7 +3,7 @@ import { CircularProgress } from 'material-ui';
 
 const Loading = () => (
   <div>
-    <CircularProgress size={20} >
+    <CircularProgress size={25} >
       Loading ...
     </CircularProgress>
   </div>

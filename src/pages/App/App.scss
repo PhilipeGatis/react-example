@@ -1,15 +1,23 @@
-
-.app{
-  height: 100%;
-  .app-bar{
-    position: relative;
-    .app-bar-title {
-      flex: 1;
-    }
-  }
-
-  .app-content{
-    height: 100%;
-    padding: 0 10px;
-  }
+.app-content{
+  padding: 0 15px;
+  display: flex;
 }
+
+.app-content-menu {
+  width: 20%;
+  margin-top: 10px;
+}
+
+.app-content-menu-paper {
+  padding: 10px;
+  height: 50vh;
+}
+.app-content-menu-item {
+  padding: 5px 0;
+}
+
+.app-content-box {
+  width: 80%;
+  margin: 10px 0 0 10px;
+}
+
