@@ -31,7 +31,7 @@ class Login extends Component {
   render() {
     return (
       <form className="login-wrapper" onSubmit={this.handleSubmit}>
-        <Paper className="login-box" elevation={12}>
+        <Paper className="login-box" zDepth={5}>
           <h2 className="login-box-title">
             Smart Composer
           </h2>
@@ -52,12 +52,13 @@ class Login extends Component {
             />
             <div className="login-box-button">
               {
-                this.props.isLoading ? <Loading /> :
-                <RaisedButton
-                  type="submit"
-                  primary
-                  label="Login"
-                />
+                this.props.isLoading ?
+                  <Loading size={25} center={false} /> :
+                  <RaisedButton
+                    type="submit"
+                    primary
+                    label="Login"
+                  />
               }
             </div>
           </div>

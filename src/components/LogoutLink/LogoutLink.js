@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { FlatButton } from 'material-ui';
+import { FaSignOut } from 'react-icons/lib/fa';
+
+const labelStyle = {
+  color: 'white',
+};
 
 class LogoutLink extends Component {
   handleClick = (event) => {
@@ -9,13 +14,14 @@ class LogoutLink extends Component {
 
   render() {
     return (
-      <div>
-        <FlatButton 
-          onClick={this.handleClick}
-          label="Sair"
-          primary
-        />
-      </div>
+      <FlatButton
+        labelStyle={labelStyle}
+        primary
+        onClick={this.handleClick}
+        icon={<FaSignOut style={labelStyle} />}
+        labelPosition="before"
+        label="Sair"
+      />
     );
   }
 }

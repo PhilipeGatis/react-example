@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'typeface-roboto';
 
 import PrivateRoute from './containers/PrivateRoute/PrivateRoute';
 import PublicRoute from './containers/PublicRoute/PublicRoute';
@@ -13,6 +15,7 @@ import store from './store';
 
 import './index.css';
 
+injectTapEventPlugin();
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>

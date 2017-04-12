@@ -4,7 +4,6 @@ import { AppBar, Subheader, Paper, List, ListItem } from 'material-ui';
 
 import './App.css';
 
-import Contact from './../../containers/Contact/Contact';
 import About from './../About/About';
 import ProjectList from './../../containers/ProjectList/ProjectList';
 import Home from './../Home/Home';
@@ -20,22 +19,17 @@ class App extends Component {
         />
         <div className="app-content">
           <div className="app-content-menu">
-            <Paper className="app-content-menu-paper">
+            <Paper className="app-content-menu-paper" zDepth={2}>
               <List>
                 <Subheader>Menu</Subheader>
                 <Link to="/">
                   <ListItem
-                    primaryText="HOME"
+                    primaryText="Home"
                   />
                 </Link>
                 <Link to="/projects">
                   <ListItem
                     primaryText="Projetos"
-                  />
-                </Link>
-                <Link to="/contact">
-                  <ListItem
-                    primaryText="Contactos"
                   />
                 </Link>
                 <Link to="/about">
@@ -47,13 +41,14 @@ class App extends Component {
             </Paper>
           </div>
           <div className="app-content-box">
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/projects" exact component={ProjectList} />
-              <Route path="/contact" exact component={Contact} />
-              <Route path="/about" exact component={About} />
-              <Redirect to="/" />
-            </Switch>
+            <Paper className="app-content-box-paper" zDepth={2}>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/projects" exact component={ProjectList} />
+                <Route path="/about" exact component={About} />
+                <Redirect to="/" />
+              </Switch>
+            </Paper>
           </div>
         </div>
       </div>

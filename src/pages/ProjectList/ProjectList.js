@@ -1,50 +1,44 @@
 import React, { Component } from 'react';
 import {
   Table,
-  TableHead,
+  TableHeader,
   TableBody,
   TableRow,
-  TableCell,
+  TableRowColumn,
+  TableHeaderColumn,
 } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
 
 
 class ProjectList extends Component {
 
   render() {
+    const projects = this.props.projects;
     return (
-      <Paper>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell numeric>Calories</TableCell>
-              <TableCell numeric>Fat (g)</TableCell>
-              <TableCell numeric>Carbs (g)</TableCell>
-              <TableCell numeric>Protein (g)</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {this.props.projects.map((n) => {
-              return (
-                <TableRow key={n.id}>
-                  <TableCell>{n.title}</TableCell>
-                  <TableCell numeric>{n.userId}</TableCell>
-                  <TableCell numeric>{n.userId}</TableCell>
-                  <TableCell numeric>{n.userId}</TableCell>
-                  <TableCell numeric>{n.userId}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </Paper>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderColumn>Dessert (100g serving)</TableHeaderColumn>
+            <TableHeaderColumn>Calories</TableHeaderColumn>
+            <TableHeaderColumn>Fat (g)</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {projects.map((n) => {
+            return (
+              <TableRow rowNumber={n.id} key={n.id}>
+                <TableRowColumn>{n.title}</TableRowColumn>
+                <TableRowColumn>{n.userId}</TableRowColumn>
+                <TableRowColumn>{n.userId}</TableRowColumn>
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
     );
   }
 }
 
 ProjectList.propTypes = {
-  isLoading: React.PropTypes.bool.isRequired,
   projects: React.PropTypes.array.isRequired,
 };
 

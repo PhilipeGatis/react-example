@@ -18,7 +18,7 @@ class ProjectList extends Component {
     }
 
     if (this.props.isLoading) {
-      return <Loading />;
+      return <Loading size={200} center />;
     }
 
     return (
