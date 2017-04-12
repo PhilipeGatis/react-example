@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { AppBar, Subheader, Paper, List, ListItem } from 'material-ui';
 
 import './App.css';
@@ -10,10 +10,15 @@ import Home from './../Home/Home';
 import LogoutLink from './../../containers/LogoutLink/LogoutLink';
 
 class App extends Component {
+  goTo = (location) => {
+    this.props.history.push(location);
+  };
+
   render() {
     return (
       <div>
         <AppBar
+          showMenuIconButton={false}
           title="Smart Composer"
           iconElementRight={<LogoutLink />}
         />
@@ -22,21 +27,18 @@ class App extends Component {
             <Paper className="app-content-menu-paper" zDepth={2}>
               <List>
                 <Subheader>Menu</Subheader>
-                <Link to="/">
-                  <ListItem
-                    primaryText="Home"
-                  />
-                </Link>
-                <Link to="/projects">
-                  <ListItem
-                    primaryText="Projetos"
-                  />
-                </Link>
-                <Link to="/about">
-                  <ListItem
-                    primaryText="Sobre"
-                  />
-                </Link>
+                <ListItem
+                  onTouchTap={() => this.goTo('/')}
+                  primaryText="Home"
+                />
+                <ListItem
+                  onTouchTap={() => this.goTo('/projects')}
+                  primaryText="Projetos"
+                />
+                <ListItem
+                  onTouchTap={() => this.goTo('/about')}
+                  primaryText="Sobre"
+                />
               </List>
             </Paper>
           </div>
@@ -46,6 +48,7 @@ class App extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/projects" exact component={ProjectList} />
                 <Route path="/about" exact component={About} />
+                <Route path="/projectEdit/:id" exact component={About} />
                 <Redirect to="/" />
               </Switch>
             </Paper>
@@ -55,5 +58,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default App;
