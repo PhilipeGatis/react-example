@@ -1,0 +1,33 @@
+.edit-project-content{
+  padding: 0 15px;
+  display: flex;
+}
+
+.edit-project-content-menu {
+  width: 20%;
+  margin-top: 10px;
+}
+
+.edit-project-content-menu-paper {
+  padding: 10px;
+  height: 50vh;
+  min-height: 250px;
+  overflow: auto;
+}
+.edit-project-content-menu-item {
+  padding: 5px 0;
+}
+
+.edit-project-content-box {
+  width: 80%;
+  margin: 10px 0 0 10px;
+}
+
+.edit-project-content-box-paper {
+  min-height: 80vh;
+  max-height: 85vh;
+  padding: 10px;
+  margin-bottom: 25px;
+  overflow: auto;
+}
+

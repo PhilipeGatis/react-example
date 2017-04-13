@@ -2,20 +2,26 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+
+const render = (props, component, auth, ...rest) => {
+  if (auth.loggedUser) {
+    return (
+      React.createElement(component, props)
+    );
+  }
+  return (
+    <Redirect
+      to={{
+        pathname: '/login',
+        state: { from: props.location },
+      }}
+    />
+  );
+};
+
 const PrivateRoute = ({ component, auth, ...rest }) => (
   <Route
-    {...rest} render={props => (
-      auth.loggedUser ? (
-        React.createElement(component, props)
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/login',
-            state: { from: props.location },
-          }}
-        />
-      )
-    )}
+    {...rest} render={props => render(props, component, auth, ...rest)}
   />
 );
 

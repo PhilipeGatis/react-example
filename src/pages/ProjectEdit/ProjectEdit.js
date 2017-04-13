@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { AppBar, Subheader, Paper, List, ListItem } from 'material-ui';
+import { Subheader, Paper, List, ListItem } from 'material-ui';
 
-import './App.css';
+import './ProjectEdit.css';
 
 import About from './../About/About';
 import ProjectList from './../../containers/ProjectList/ProjectList';
 import Home from './../Home/Home';
-import ProjectEdit from './../ProjectEdit/ProjectEdit';
-import LogoutLink from './../../containers/LogoutLink/LogoutLink';
 
-class App extends Component {
+class ProjectEdit extends Component {
   goTo = (location) => {
     this.props.history.push(location);
   };
@@ -18,14 +16,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <AppBar
-          showMenuIconButton={false}
-          title="Smart Composer"
-          iconElementRight={<LogoutLink />}
-        />
-        <div className="app-content">
-          <div className="app-content-menu">
-            <Paper className="app-content-menu-paper" zDepth={2}>
+        <div className="edit-project-content">
+          <div className="edit-project-content-menu">
+            <Paper className="edit-project-content-menu-paper" zDepth={2}>
               <List>
                 <Subheader>Menu</Subheader>
                 <ListItem
@@ -43,13 +36,13 @@ class App extends Component {
               </List>
             </Paper>
           </div>
-          <div className="app-content-box">
-            <Paper className="app-content-box-paper" zDepth={2}>
+          <div className="edit-project-content-box">
+            <Paper className="edit-project-content-box-paper" zDepth={2}>
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/projects" exact component={ProjectList} />
                 <Route path="/about" exact component={About} />
-                <Route path="/projectEdit/:id" component={ProjectEdit} />
+                <Route path="/projectEdit/:id" exact component={About} />
                 <Redirect to="/" />
               </Switch>
             </Paper>
@@ -60,10 +53,10 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+ProjectEdit.propTypes = {
   history: React.PropTypes.shape({
     push: React.PropTypes.func.isRequired,
   }).isRequired,
 };
 
-export default App;
+export default ProjectEdit;
