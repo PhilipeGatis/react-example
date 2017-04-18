@@ -3,31 +3,37 @@
   display: flex;
 }
 
-.edit-project-content-menu {
-  width: 20%;
-  margin-top: 10px;
-}
-
-.edit-project-content-menu-paper {
-  padding: 10px;
-  height: 50vh;
-  min-height: 250px;
-  overflow: auto;
-}
-.edit-project-content-menu-item {
-  padding: 5px 0;
-}
-
 .edit-project-content-box {
-  width: 80%;
+  width: 100%;
   margin: 10px 0 0 10px;
 }
 
-.edit-project-content-box-paper {
+.edit-project-content-card {
   min-height: 80vh;
   max-height: 85vh;
   padding: 10px;
   margin-bottom: 25px;
   overflow: auto;
+}
+
+.edit-project-content-card-action {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.edit-project-content-box-title {
+  font-size: 2em;
+  padding-bottom: 15px;
+  padding-left: 16px;
+}
+.edit-project-content-box-title-version {
+  font-size: 0.7em;
+}
+
+.edit-project-content-box-description {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.541176);
+  font-weight: 500;
+  padding-left: 16px;
 }
 

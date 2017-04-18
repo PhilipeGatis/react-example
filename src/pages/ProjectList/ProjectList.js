@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import { List, ListItem, Subheader, IconMenu, MenuItem } from 'material-ui';
 import { FaFolder, FaEllipsisV } from 'react-icons/lib/fa';
 
@@ -20,7 +20,7 @@ const rightIconMenu = (
 class ProjectList extends Component {
 
   goTo = (id) => {
-    this.props.history.push(`/projectEdit/:${id}`);
+    this.props.history.push(`/projectEdit/${id}`);
   };
 
   render() {
