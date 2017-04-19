@@ -1,0 +1,26 @@
+.bmp-container {
+    display: flex;
+    min-height: inherit;
+    height: 1vh;
+    box-sizing: border-box;
+}
+
+.bmp-container-canvas {
+    min-height: inherit;
+    height: 1vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bmp-container-properties-panel {
+  width: 260px;
+  z-index: 10;
+  border-left: 1px solid #ccc;
+  overflow: auto;
+  &:empty {
+    display: none;
+  }
+  > .djs-properties-panel {
+    min-height:100%;
+  }
+}

@@ -16,7 +16,6 @@ const rightIconMenu = (
 );
 
 
-
 class ProjectList extends Component {
 
   goTo = (id) => {
@@ -29,24 +28,22 @@ class ProjectList extends Component {
       <div>
         <List>
           <Subheader>Projetos</Subheader>
-          {projects.map((n) => {
-            return (
-              <ListItem
-                key={n.id}
-                leftIcon={<FaFolder style={projectIconColor} />}
-                primaryText={n.title}
-                secondaryTextLines={2}
-                onTouchTap={() => this.goTo(n.id)}
-                rightIconButton={rightIconMenu}
-                secondaryText={
-                  <div>
-                    <div>Versão: {n.userId}</div>
-                    <div>Ultima Modificação: {n.body}</div>
-                  </div>
+          {projects.map(n => (
+            <ListItem
+              key={n.id}
+              leftIcon={<FaFolder style={projectIconColor} />}
+              primaryText={n.title}
+              secondaryTextLines={2}
+              onTouchTap={() => this.goTo(n.id)}
+              rightIconButton={rightIconMenu}
+              secondaryText={
+                <div>
+                  <div>Versão: {n.userId}</div>
+                  <div>Ultima Modificação: {n.body}</div>
+                </div>
                 }
-              />
-            );
-          })}
+            />
+            ))}
         </List>
       </div>
     );

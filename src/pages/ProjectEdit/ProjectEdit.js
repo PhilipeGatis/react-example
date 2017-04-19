@@ -99,13 +99,14 @@ class ProjectEdit extends Component {
   };
 
   render() {
+    const project = this.props.project;
     return (
       <div>
         <div className="edit-project-content">
           <div className="edit-project-content-box">
-            <div className="edit-project-content-box-title">XXXXX <span className="edit-project-content-box-title-version">1.0</span></div>
+            <div className="edit-project-content-box-title">{project.title}<span className="edit-project-content-box-title-version"> 1.0</span></div>
             <Subheader >Descrição:</Subheader>
-            <p className="edit-project-content-box-description"> YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY </p>
+            <p className="edit-project-content-box-description">{project.body}</p>
             <GridList
               cellHeight={180}
             >
@@ -134,6 +135,8 @@ ProjectEdit.propTypes = {
   history: React.PropTypes.shape({
     push: React.PropTypes.func.isRequired,
   }).isRequired,
+  project: React.PropTypes.object.isRequired,
+  match: React.PropTypes.object.isRequired,
 };
 
 export default withRouter(ProjectEdit);

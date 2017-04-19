@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.0",
+    "bpmn-js": "^0.20.5",
+    "bpmn-js-properties-panel": "^0.13.1",
+    "diagram-js": "^0.19.3",
     "history": "^4.6.1",
     "material-ui": "^0.17.3",
     "react": "^15.4.2",

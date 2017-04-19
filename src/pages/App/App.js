@@ -7,7 +7,7 @@ import './App.css';
 import About from './../About/About';
 import ProjectList from './../../containers/ProjectList/ProjectList';
 import Home from './../Home/Home';
-import ProjectEdit from './../ProjectEdit/ProjectEdit';
+import ProjectEdit from './../../containers/ProjectEdit/ProjectEdit';
 import LogoutLink from './../../containers/LogoutLink/LogoutLink';
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/projects" exact component={ProjectList} />
                 <Route path="/about" exact component={About} />
-                <Route path="/projectEdit/:id" component={ProjectEdit} />
+                <Route path="/projectEdit/:id" exact component={ProjectEdit} />
                 <Redirect to="/" />
               </Switch>
             </Paper>

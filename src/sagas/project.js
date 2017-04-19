@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import * as actions from './../actions/project';
 
-const request = ({ email }) => axios.get('http://jsonplaceholder.typicode.com/posts');
+const requestGetProjects = ({ email }) => axios.get('http://jsonplaceholder.typicode.com/posts');
 
 function* getProjectsAsync(action) {
   try {
     const response = yield call(
-      request,
+      requestGetProjects,
       action.payload,
     );
 
@@ -18,6 +18,25 @@ function* getProjectsAsync(action) {
   }
 }
 
-export default function* watchGetProjectsAsync() {
+export function* watchGetProjectsAsync() {
   yield takeEvery(actions.GET_PROJECTS, getProjectsAsync);
+}
+
+const requestGetProject = ({ id }) => axios.get(`http://jsonplaceholder.typicode.com/posts/${id}`);
+
+function* getProjectAsync(action) {
+  try {
+    const response = yield call(
+      requestGetProject,
+      action.payload,
+    );
+
+    yield put(actions.getProjectSuccess(response.data));
+  } catch (err) {
+    yield put(actions.getProjectFailed(err));
+  }
+}
+
+export function* watchGetProjectAsync() {
+  yield takeEvery(actions.GET_PROJECT, getProjectAsync);
 }
